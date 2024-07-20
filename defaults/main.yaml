@@ -1,0 +1,9 @@
+---
+microbin_image: "danielszabo99/microbin:latest"
+microbin_host_port: 8765
+microbin_container_name: microbin
+microbin_host_data_path: /var/lib/microbin
+microbin_host_config_path: /etc/microbin
+microbin_container_user: microbin
+microbin_admin_username: "admin"
+microbin_admin_password: "m1cr0b1n"

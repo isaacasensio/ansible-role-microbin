@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+---
+version: '3.4'
+services:
+  microbin:
+    restart: unless-stopped
+    image: {{ microbin_image }}
+    container_name: {{ microbin_container_name }}
+    environment:
+      - PUID={{ created_uid }}
+      - PGID={{ created_gid }}
+      - MICROBIN_ADMIN_USERNAME={{ microbin_admin_username }}
+      - MICROBIN_ADMIN_PASSWORD={{ microbin_admin_password }}
+      - MICROBIN_ENCRYPTION_SERVER_SIDE=true
+    volumes:
+      - {{ microbin_host_data_path }}:/microbin_data
+    ports:
+      - {{ microbin_host_port }}:8080 
